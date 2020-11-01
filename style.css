@@ -1,0 +1,254 @@
+@import "firefly.css";
+@import "slide-1.css";
+@import "slide-2.css";
+@import "button-1.css";
+@import "cover.css";
+
+/* font */
+@font-face {
+  font-family: 'Brusher';
+  src: url('./font/brusher.woff');
+}
+
+@font-face {
+  font-family: 'Chalk';
+  src: url('./font/ChalkItUp.woff');
+}
+
+/*---------------------------------*/
+body {
+  overflow: hidden;
+  /* hide words overflow*/
+  background: url("./bg-cover/bg.png") center center fixed;
+  background-size: cover;
+  user-select: none;
+}
+
+footer {
+  position: absolute;
+  bottom: 50%;
+  right: 35px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  z-index: -1;
+}
+
+.footer-text {
+  font-family: Courgette;
+  text-align: right;
+  line-height: 0.5;
+  font-size: 18px;
+  font-weight: bold;
+  color: #0530ad;
+}
+
+footer img {
+  width: 130px;
+  height: 80px;
+}
+
+.container {
+  /*center the card*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#flipbook {
+  transform-style: preserve-3d;
+  perspective: 3000px;
+}
+
+#flipbook .hard {
+  position: relative;
+  background: #ffffff;
+}
+
+/*
+#flipbook .odd {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+#flipbook .even {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}*/
+/* shadow inside page */
+.hard.odd::after {
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 120%;
+  box-shadow: inset 0 0 15px #666;
+}
+
+.hard.even::after {
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 105%;
+  box-shadow: inset -15px 0 25px 0.5px #666;
+}
+
+/* text page 2 */
+.title-page-2 {
+  z-index: 999 !important;
+  position: absolute;
+  top: 40%;
+  left: 7.5%;
+  overflow: hidden;
+  text-align: center;
+  font-family: Brusher;
+  font-size: 30px;
+  background: -webkit-linear-gradient(rgba(65, 251, 255, 1), rgba(9, 9, 121, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-page-2 {
+  z-index: 999 !important;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  overflow: hidden;
+  width: 150px;
+  font-family: Courgette;
+  font-size: 20px;
+  background: -webkit-linear-gradient(rgba(9, 9, 121, 1), rgba(65, 251, 255, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fade-in-left {
+  animation: fade-in-left 1.2s both;
+}
+
+@keyframes fade-in-left {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/*---------------Page 3 + 4------------------*/
+.p-3, .classroom, .p-4, .teacher, .para-p4, .word-p4 {
+  position: absolute;
+}
+
+.fade-in {
+  animation: fade-in-l 2s;
+}
+
+.slide-in {
+  animation: slide-in-fwd-center 5s;
+}
+
+@keyframes slide-in-fwd-center {
+  0% {
+    transform: translateZ(-1400px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+/*---------------Page 5 + 6------------------*/
+.p-5-6, .left-text-s3, .right-text-s3, .petal-layer-1, .petal-layer-2, .petal-layer-3, .petal-layer-4, .petal-layer-5 {
+  position: absolute;
+}
+
+.left-text-s3 {
+  animation: fade-in-r 2s;
+}
+
+.right-text-s3 {
+  animation: fade-in-l 2s;
+}
+
+.r-petal-1 {
+  animation: fade-in-l 6s;
+}
+
+.r-petal-2 {
+  animation: fade-in-l 5s;
+}
+
+.r-petal-3 {
+  animation: fade-in-l 4s;
+}
+
+.r-petal-4 {
+  animation: fade-in-l 3s;
+}
+
+.r-petal-5 {
+  animation: fade-in-l 2s;
+}
+
+.l-petal-1 {
+  animation: fade-in-r 6s;
+}
+
+.l-petal-2 {
+  animation: fade-in-r 5s;
+}
+
+.l-petal-3 {
+  animation: fade-in-r 4s;
+}
+
+.l-petal-4 {
+  animation: fade-in-r 3s;
+}
+
+.l-petal-5 {
+  animation: fade-in-r 2s;
+}
+
+@keyframes fade-in-l {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-r {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/*---------------Butterfly------------------*/
+.p-canvas-webgl {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}

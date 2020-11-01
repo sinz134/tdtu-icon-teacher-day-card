@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Nep</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="style.css">
+  <!-- js -->
+  <script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./lib/turn.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Modak&display=swap">
+  <!-- Font Awesome-->
+  <script src="https://kit.fontawesome.com/2d04760b31.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <!-- card  -->
+  <div class="container">
+    <div class="card">
+      <div id="flipbook">
+        <!-- Cover -->
+        <div class="hard cover">
+          <img src="./bg-cover/frame.png" class="cover-frame" alt="Frame Decoration">
+          <img src="./bg-cover/balloon-text.png" class="cover-bltext" alt="Balloon Text">
+          <img src="./bg-cover/mid-text.png" class="cover-mtext" alt="Teacher's Day">
+
+          <!--
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>  -->
+
+        </div>
+        <!-- Side 1 -->
+        <!-- Page 1 -->
+        <div class="hard">
+          <img src="./page/p-1.png" alt="Page">
+          <!-- Button to show slide 1 -->
+          <div class="button-1" id="show">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <i class="fas fa-angle-left"></i>
+            <i class="fas fa-angle-right"></i>
+          </div>
+        </div>
+        <!-- Page 2 -->
+        <div class="hard" id="animate-page-2">
+          <img src="./page/p-2.png" alt="Page">
+          <!-- text -->
+          <div class="title-page-2">
+            <p>TDTU<br />in<br />our mind</p>
+          </div>
+          <div class="text-page-2">
+            <p>Thanks TDTU for letting us meet amazing teachers</p>
+          </div>
+        </div>
+        <!-- Side 2 -->
+        <!-- Page 3 -->
+        <div class="hard" id="rotate-in">
+          <img src="./page/p-3-4.png" class="p-3" alt="Page">
+          <img src="./page/classroom.png" class="classroom" alt="Page">
+          <img src="./page/para.png" class="para-p4" alt="Paragraph">
+        </div>
+        <!-- Page 4 -->
+        <div class="hard" id="slide-in">
+          <img src="./page/p-3-4.png" class="p-4" alt="Page">
+          <img src="./page/mr-tu.png" class="teacher" alt="Teacher">
+          <img src="./page/mr-huy.png" class="teacher" alt="Teacher">
+          <img src="./page/word.png" class="word-p4" alt="Word">
+          <img src="./page/word-2.png" class="word-p4" alt="Word">
+        </div>
+        <!-- Side 3 -->
+
+        <div class="hard" id="side-3">
+          <script>
+            $('.petal').hide();
+          </script>
+          <img src="./page/p-5.png" class="p-5-6" alt="Page">
+          <img src="./side-3/left-text.png" class="left-text-s3" alt="Wish">
+          <img src="./side-3/left-text-2.png" class="left-text-s3" alt="Wish">
+          <img src="./side-3/l-petal-1.png" class="petal l-petal-1 petal-layer-1" alt="Rose Petal">
+          <img src="./side-3/l-petal-2.png" class="petal l-petal-2 petal-layer-2" alt="Rose Petal">
+          <img src="./side-3/l-petal-3.png" class="petal l-petal-3 petal-layer-3" alt="Rose Petal">
+          <img src="./side-3/l-petal-4.png" class="petal l-petal-4 petal-layer-4" alt="Rose Petal">
+          <img src="./side-3/l-petal-5.png" class="petal l-petal-5 petal-layer-5" alt="Rose Petal">
+        </div>
+        <div class="hard">
+          <script>
+            $('.right-text-s3').hide();
+            $('.petal').hide();
+          </script>
+          <img src="./page/p-6.png" class="p-5-6" alt="Page">
+          <img src="./side-3/right-text.png" class="right-text-s3" alt="Wish">
+          <img src="./side-3/right-text-2.png" class="right-text-s3" alt="Wish">
+          <img src="./side-3/r-petal-1.png" class="petal r-petal-1 petal-layer-1" alt="Rose Petal">
+          <img src="./side-3/r-petal-2.png" class="petal r-petal-2 petal-layer-2" alt="Rose Petal">
+          <img src="./side-3/r-petal-3.png" class="petal r-petal-3 petal-layer-3" alt="Rose Petal">
+          <img src="./side-3/r-petal-4.png" class="petal r-petal-4 petal-layer-4" alt="Rose Petal">
+          <img src="./side-3/r-petal-5.png" class="petal r-petal-5 petal-layer-5" alt="Rose Petal">
+        </div>
+        <!-- Back Cover-->
+        <div class="hard">
+          <img src="./bg-cover/frame.png" class="cover-frame" alt="Frame Decoration">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="butterfly-container">
+    <canvas class="p-canvas-webgl" id="canvas-webgl"></canvas>
+  </div>
+  <!-- slide 1  -->
+  <div class="overlay"></div>
+  <div class="pop-window">
+    <img src="./slide-1/back-mountain.png" id="backM" alt="Back Mountain">
+    <img src="./slide-1/front-mountain.png" id="frontM" alt="Front Mountain">
+    <img src="./slide-1/sideRTree3.png" class="backT" alt="Tree">
+    <img src="./slide-1/backLTree.png" class="backT" alt="Tree">
+    <img src="./slide-1/backRTree.png" class="backT" alt="Tree">
+    <img src="./slide-1/sideLTree.png" class="backT" alt="Tree">
+    <img src="./slide-1/tdt.png" id="tdt" alt="TDTU">
+    <img src="./slide-1/sideRTree1.png" class="frontT" alt="Tree">
+    <img src="./slide-1/sideRTree2.png" class="frontT" alt="Tree">
+    <img src="./slide-1/frontLTree.png" class="frontT" alt="Tree">
+    <img src="./slide-1/frontRTree.png" class="frontT" alt="Tree">
+
+    <!-- text -->
+    <div class="text-slide1">
+      <div class="text-card">
+        <div class="card-front">
+          <p>We are fireflies</p>
+        </div>
+        <div class="card-back">
+          <p>TDTU is like a fairytale forest</p>
+          <p> make us shine</p>
+        </div>
+      </div>
+    </div>
+    <!-- firefly animation -->
+    <div id="firefly"></div>
+  </div>
+
+  <!-- slide 2  -->
+  <div class="slide-2">
+    <img src="./slide-2/board.png" class="board bounce-first" alt="Board">
+    <img src="./slide-2/desk.png" class="desk bounce-first" alt="Desk">
+    <img src="./slide-2/bottle.png" class="bottle bounce-second" alt="Bottle">
+    <img src="./slide-2/chalk.png" class="chalk bounce-second" alt="Chalk">
+    <img src="./slide-2/book.png" class="book bounce-second" alt="Book">
+    <img src="./slide-2/notebook.png" class="notebook bounce-second" alt="Notebook">
+    <img src="./slide-2/coffee.png" class="coffee bounce-second" alt="Coffee Cup">
+    <img src="./slide-2/meow.png" class="meow bounce-second" id="rotate-out" alt="Meow">
+
+    <!-- text-->
+    <div class="chalk-text">
+      <p>Thanks for being <strong class="rainbow">excellent</strong> teachers who sacrificed who know how much sleep at night!</p>
+    </div>
+
+    <!-- focus on cat -->
+    <i class="fas fa-angle-double-right"></i>
+
+    <!-- paper plane animation -->
+    <div class "paper">
+      <svg style="display:none;" aria-hidden="true" focusable="false" data-prefix="far" data-icon="paper-plane" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path id="paper-plane" fill="currentColor"
+          d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z">
+        </path>
+      </svg>
+      <div class="plane">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <use href="#paper-plane" />
+        </svg>
+      </div>
+      <div class="plane small">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <use href="#paper-plane" />
+        </svg>
+      </div>
+      <div class="plane small">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <use href="#paper-plane" />
+        </svg>
+      </div>
+      <div class="plane small">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <use href="#paper-plane" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!--  js  -->
+  <script type="text/javascript" src="./script.js"></script>
+  <script type="text/javascript" src="./butterfly.js"></script>
+</body>
+
+<footer>
+  <div class="footer-text">
+    <p>19H50202 </p>
+    <p>19H50203 </p>
+    <p>NEP </p>
+  </div>
+  <img src="https://iconclub.github.io/assets/iconLogo.png" alt="ICON">
+</footer>
+
+</html>

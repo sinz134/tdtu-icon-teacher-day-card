@@ -1,0 +1,272 @@
+.rot-in {
+  animation: rot-in 2s;
+  animation-fill-mode: forwards;
+}
+
+.rot-out {
+  animation: rot-out 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rot-in {
+  from {
+    transform: rotateX(0) rotateZ(0);
+  }
+
+  to {
+    transform: rotateX(64deg) rotateZ(-30deg) scale(1.5);
+  }
+}
+
+@keyframes rot-out {
+  from {
+    transform: rotateX(64deg) rotateZ(-30deg);
+  }
+
+  to {
+    transform: rotateX(0) rotateZ(0);
+  }
+}
+
+.slide-2 {
+  display: flex;
+}
+
+.board, .chalk-text, .desk, .bottle, .chalk, .book, .notebook, .coffee, .meow, .slide-2 .fas, .paper {
+  position: absolute;
+}
+
+.desk {
+  width: 400px;
+  height: 400px;
+  margin: 100px 400px;
+}
+
+.bottle {
+  width: 40px;
+  height: 120px;
+  margin: 100px 710px;
+}
+
+.chalk {
+  width: 70px;
+  height: 70px;
+  margin: 170px 730px;
+}
+
+.book {
+  width: 120px;
+  height: 120px;
+  margin: 150px 600px;
+}
+
+.coffee {
+  width: 150px;
+  height: 150px;
+  margin: 170px 600px;
+}
+
+.notebook {
+  width: 120px;
+  height: 70px;
+  margin: 200px 500px;
+}
+
+.board {
+  width: 600px;
+  height: 600px;
+  margin: -150px 650px;
+}
+
+.meow {
+  width: 230px;
+  height: 150px;
+  margin: 400px 600px;
+}
+
+.bounce-first {
+  animation: bounce-in-top 1.1s both;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+}
+
+.bounce-second {
+  animation: bounce-in-top 1.1s 1.5s both;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+}
+
+@keyframes bounce-in-top {
+  0% {
+    transform: translateY(-500px);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  38% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+
+  55% {
+    transform: translateY(-65px);
+    animation-timing-function: ease-in;
+  }
+
+  72% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+
+  81% {
+    transform: translateY(-28px);
+    animation-timing-function: ease-in;
+  }
+
+  90% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+
+  95% {
+    transform: translateY(-8px);
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+}
+
+/* text */
+.rainbow {
+  background: -webkit-linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(254,255,6,1) 38%, rgba(11,255,51,1) 62%, rgba(0,14,255,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.chalk-text {
+  font-family: Chalk;
+  font-size: 30px;
+  color: white;
+  width: 400px;
+  margin: 20px 770px;
+  animation: slide-in-blurred-left 1.5s 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+@keyframes slide-in-blurred-left {
+  0% {
+    transform: translateX(-400px) scaleX(2.5) scaleY(0.2);
+    transform-origin: 100% 50%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* focus the cat */
+.slide-2 .fas {
+  animation: slide-in-blurred-left 1.25s 0.25s infinite both;
+  font-size: 30px;
+  background: -webkit-linear-gradient(rgba(242, 112, 61, 1), rgba(255, 198, 93, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 450px 600px;
+}
+
+@keyframes slide-in-blurred-left {
+  0% {
+    transform: translateX(-200px) scaleX(2.5) scaleY(0.2);
+    transform-origin: 100% 50%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* paper plane */
+.plane {
+  animation: 5s fly infinite reverse linear;
+  color: rgba(255, 106, 0, 1);
+  height: 80px;
+  margin: 150px 670px;
+  position: absolute;
+  width: 300px;
+}
+
+.small {
+  height: 60px;
+}
+
+.small:nth-child(3) {
+  animation-delay: 0.5s;
+  color: rgba(255, 126, 6, 1);
+}
+
+.small:nth-child(4) {
+  animation-delay: 1s;
+  color: rgba(255, 207, 11, 1);
+}
+
+.small:nth-child(5) {
+  animation-delay: 1.5s;
+  color: rgba(245, 255, 65, 1);
+}
+
+svg {
+  height: inherit;
+  transform: rotate(135deg);
+  position: absolute;
+  left: 55px;
+  /* 0.5*parent-width - 0.5*own-width */
+}
+
+@keyframes fly {
+  from {
+    transform-origin: bottom left;
+    transform: rotate(40deg);
+  }
+
+  10% {
+    transform-origin: bottom right;
+    transform: rotate(40deg);
+  }
+
+  30% {
+    transform-origin: bottom right;
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform-origin: bottom right;
+    transform: rotate(320deg);
+  }
+
+  60% {
+    transform-origin: bottom left;
+    transform: rotate(320deg);
+  }
+
+  80% {
+    transform-origin: bottom left;
+    transform: rotate(180deg);
+  }
+
+  to {
+    transform-origin: bottom left;
+    transform: rotate(40deg);
+  }
+}
