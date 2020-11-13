@@ -1,0 +1,86 @@
+.overlay {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(0deg, rgba(2, 0, 36, 1) 30%, rgba(9, 9, 121, 1) 54%, rgba(65, 251, 255, 1) 100%);
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+}
+
+.pop-window {
+  background-color: transparent;
+  position: absolute;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #000;
+  cursor: pointer;
+}
+
+/* overlapping order */
+#backM, #frontM, .backT, #tdt, .frontT, .text-slide1, #firefly {
+  position: absolute;
+}
+
+.text-slide1 {
+  position: fixed;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 1000px;
+}
+
+.text-card {
+  width: 700px;
+  height: 200px;
+  transform-origin: top;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  text-align: center;
+}
+
+.text-card p {
+  font-family: Righteous;
+  font-size: 50px;
+  background: -webkit-linear-gradient(rgba(35, 249, 253, 1), rgba(255, 253, 93, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-card.in {
+  animation: swing 2s 0.5s both;
+}
+
+.card-front {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: transparent;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+  border-radius: 10px;
+}
+
+.card-back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: transparent;
+  backface-visibility: hidden;
+  transform: rotateX(180deg);
+  border-radius: 10px;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotateX(0);
+  }
+
+  100% {
+    transform: rotateX(180deg);
+  }
+}
