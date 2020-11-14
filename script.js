@@ -57,6 +57,9 @@ $popup.click(
   function() {
     $overlay.delay(800).fadeOut();
     $popup.delay(800).fadeOut();
+    setTimeout(function(){
+      $(".text-card").removeClass('in');
+    },1500);
   }
 );
 
