@@ -90,7 +90,7 @@ footer img {
   cursor: pointer;
   position: fixed;
   z-index: -1;
-  top: 413px;
+  top: 432px;
   left: 60px;
   width: 70px;
   height: 70px;
@@ -103,7 +103,7 @@ footer img {
   content: "";
   position: fixed;
   z-index: -3 !important;
-  top: 448px;
+  top: 467px;
   left: 95px;
   width: 70px;
   height: 70px;
